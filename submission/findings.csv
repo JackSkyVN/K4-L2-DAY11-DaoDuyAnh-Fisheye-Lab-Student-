@@ -1,1 +1,42 @@
 round,slice,frame,object_ref,cell,what,why,severity,owner,rule_id,evidence,action,rules_version,note
+calib,C0,adasind_019560.jpg,L3,L_only,SPURIOUS,E1_annotator_error,P1,annotator,R03,Vẽ thêm box Pedestrian (459-535 x 729-865) nhưng reference không có vật nào tại vùng này. Theo R03 người ngồi sau trên xe hai bánh không box riêng — đây có thể là người ngồi sau trên Bike (đã có L1) nên L3 là box thừa.,rework,v1.0.0,Zone center — cần xóa box Pedestrian thừa trong CVAT
+calib,C0,adasind_019560.jpg,L4+R3,LR_noM,WRONG_CLASS,E1_annotator_error,P1,annotator,R04,L4 gán Car (43-97 x 772-854) nhưng reference R3 gán ThreeWheeler (39-99 x 773-850) — cùng vị trí vật. Đây là xe ba bánh (auto-rickshaw) nhưng bị nhầm sang Car. R04: xe ba bánh chở người/hàng → ThreeWheeler không phải Car.,rework,v1.0.0,Zone edge — sửa class Car thành ThreeWheeler trong CVAT
+calib,C0,adasind_019560.jpg,L7,L_only,SPURIOUS,E1_annotator_error,P1,annotator,R09,Vẽ thêm box Bike (0-93 x 1066-1480) ở zone edge phía dưới. Box này nằm sâu trong vùng ego_body (reference có ego_body từ y≈1100). Theo R09 không box trong ignore_region ≥50% — đây là IGNORE_SCOPE: box nằm trong vùng thân xe ego.,rework,v1.0.0,Zone edge — xóa box Bike nằm trong ego_body
+calib,C0,adasind_019560.jpg,R4,R_only,MISSING,E1_annotator_error,P1,annotator,R01,Bỏ sót Bike (888-966 x 801-895) ở zone mid-right. Vật cao khoảng 94px > H=40px nên bắt buộc có box theo R01. Vị trí bên phải ảnh (x≈888-966) bị bỏ qua do tập trung vào vùng trung tâm.,rework,v1.0.0,Zone mid — thêm box Bike bên phải trong CVAT
+r2_qa,B3-mid,adasind_128310.jpg,L4,L_only,IGNORE_SCOPE,,P1,annotator,R07,Box Bike (0-220 x 1052-1733) vẽ trùm lên gương/thân xe ego ở góc trái dưới. R07: thân xe ego phải đánh dấu bằng ignore_region reason=ego_body không vẽ box đối tượng.,rework,v1.0.0,Cần xóa box Bike và vẽ polygon ego_body trong CVAT
+r2_qa,B3-mid,adasind_140160.jpg,L3,L_only,SPURIOUS,,P2,annotator,R01,Box Bike (175-189 x 854-890) có chiều cao h=36.1px nhỏ hơn ngưỡng H=40px theo quy định R01.,rework,v1.0.0,Xóa box Bike vi phạm ngưỡng chiều cao tối thiểu
+r2_qa,B3-mid,adasind_140160.jpg,L4,L_only,SPURIOUS,,P2,annotator,R01,Box Bike (195-208 x 855-864) có chiều cao h=8.7px nhỏ hơn rất nhiều so với ngưỡng H=40px theo R01.,rework,v1.0.0,Xóa box Bike quá nhỏ ở hậu cảnh xa
+r2_qa,B3-mid,adasind_230910.jpg,L11,L_only,ATTRIBUTE,,P1,annotator,R05,Box Bike (0-244 x 1108-1732) chạm mép trái ảnh x=0 bị cắt khung hình nhưng thuộc tính truncated đang là false. R05: vật bị cắt bởi biên khung hình phải đặt truncated=true.,rework,v1.0.0,Chuyển thuộc tính truncated sang true trong CVAT
+r2_qa,B3-mid,adasind_230910.jpg,L12,L_only,ATTRIBUTE,,P1,annotator,R05,Box Bike (945-1080 x 959-1116) chạm mép phải ảnh x=1080 bị cắt khung hình nhưng thuộc tính truncated đang là false. R05: vật bị cắt bởi biên ảnh phải đặt truncated=true.,rework,v1.0.0,Chuyển thuộc tính truncated sang true trong CVAT
+r1_craft,B3-mid,adasind_128310.jpg,L4,na,IGNORE_SCOPE,,,,,,,,
+r1_craft,B3-mid,adasind_128310.jpg,L5+R3,na,WRONG_CLASS,,,,,,,,
+r1_craft,B3-mid,adasind_140160.jpg,L1,na,SPURIOUS,,,,,,,,
+r1_craft,B3-mid,adasind_230910.jpg,L11,na,IGNORE_SCOPE,,,,,,,,
+r1_craft,B3-mid,adasind_230910.jpg,L12+R1,na,ATTRIBUTE,,,,,,,,
+r1_craft,B3-mid,adasind_230910.jpg,L7+R7,na,WRONG_CLASS,,,,,,,,
+r1_craft,B3-mid,adasind_230910.jpg,L9+R8,na,BOX_GEOMETRY,,,,,,,,
+r1_craft,B3-mid,adasind_230910.jpg,L10,na,SPURIOUS,,,,,,,,
+r1_craft,B3-mid,adasind_230910.jpg,L13,na,SPURIOUS,,,,,,,,
+r1_craft,B3-mid,adasind_230910.jpg,R10,na,MISSING,,,,,,,,
+r3_diag,B3-mid,adasind_128310.jpg,L3+R5,LR_noM,MISSING,E4_model_domain,P2,ai_team,R04,L3 va R5 deu gan Truck (704-1080 x 859-1078) nhung model bo sot do nam sat mep meo.,keep_with_reason,v1.0.0,Giu nhan L3 vi L va R trung khop
+r3_diag,B3-mid,adasind_128310.jpg,L5,L_only,SPURIOUS,E1_annotator_error,P1,annotator,R04,L5 gan Bus (196-289 x 884-982) nhung R3 va M3 deu la Truck (xe tai nho cho hang).,rework,v1.0.0,Sua class L5 tu Bus thanh Truck
+r3_diag,B3-mid,adasind_128310.jpg,R3+M3,RM_noL,MISSING,E1_annotator_error,P1,annotator,R04,"R3 va M3 deu la Truck (187-288 x 889-983), thieu o L do L gan nham thanh Bus (L5).",rework,v1.0.0,Sua lai class Truck cho xe tai nho
+r3_diag,B3-mid,adasind_128310.jpg,M4,M_only,SPURIOUS,E4_model_domain,P3,ai_team,R01,Model du doan thua box M4 o center khong co vat the thuc te.,keep_with_reason,v1.0.0,Du doan ao cua model (false positive)
+r3_diag,B3-mid,adasind_140160.jpg,L3+R1,LR_noM,MISSING,E4_model_domain,P2,ai_team,R01,L3 va R1 khop Bike (175-189 x 854-890) o xa nhung model bo sot.,keep_with_reason,v1.0.0,Model bo sot vat nho o hau canh
+r3_diag,B3-mid,adasind_140160.jpg,L4+R3,LR_noM,MISSING,E4_model_domain,P2,ai_team,R04,L4 gan Bike con R3 la Car (195-208 x 855-864) model bo sot.,keep_with_reason,v1.0.0,Vat o xa duoi nguong kich thuoc
+r3_diag,B3-mid,adasind_140160.jpg,L1,L_only,SPURIOUS,E1_annotator_error,P1,annotator,R07,L1 la Bike (0-113 x 1152-1696) ve de len vung ego_body cua xe gan camera.,rework,v1.0.0,Xoa box L1 va bo sung polygon ego_body
+r3_diag,B3-mid,adasind_140160.jpg,M1,M_only,SPURIOUS,E4_model_domain,P3,ai_team,R01,Model du doan thua box M1 o ria mep do nhieu thau kinh.,keep_with_reason,v1.0.0,Du doan ao cua model
+r3_diag,B3-mid,adasind_140160.jpg,M2,M_only,SPURIOUS,E4_model_domain,P3,ai_team,R01,Model du doan thua box M2 o ria mep.,keep_with_reason,v1.0.0,Du doan ao cua model
+r3_diag,B3-mid,adasind_140160.jpg,M3,M_only,SPURIOUS,E4_model_domain,P3,ai_team,R01,Model du doan thua box M3 o trung tam.,keep_with_reason,v1.0.0,Du doan ao cua model
+r3_diag,B3-mid,adasind_140160.jpg,M5,M_only,SPURIOUS,E4_model_domain,P3,ai_team,R01,Model du doan thua box M5 o trung tam.,keep_with_reason,v1.0.0,Du doan ao cua model
+r3_diag,B3-mid,adasind_140160.jpg,M6,M_only,SPURIOUS,E4_model_domain,P3,ai_team,R01,Model du doan thua box M6 o mid.,keep_with_reason,v1.0.0,Du doan ao cua model
+r3_diag,B3-mid,adasind_230910.jpg,L6+R5,LR_noM,MISSING,E4_model_domain,P2,ai_team,R04,L6 va R5 deu la ThreeWheeler (121-209 x 911-1028) nhung model bo sot.,keep_with_reason,v1.0.0,Model chua nhan dien tot xe ba banh goc nghieng
+r3_diag,B3-mid,adasind_230910.jpg,L2+R11,LR_noM,MISSING,E4_model_domain,P2,ai_team,R01,L2 va R11 deu la Pedestrian (585-602 x 917-969) nhung model bo sot.,keep_with_reason,v1.0.0,Nguoi di bo bi che khuat mot phan
+r3_diag,B3-mid,adasind_230910.jpg,L7+M9,LM_noR,SPURIOUS,E2_guideline_gap,P1,guideline,R04,L7 va M9 deu gan Truck (208-284 x 898-993) nhung R7 gan Car; ranh gioi van/xe tai nhe chua ro.,escalate,v1.0.0,Escalate lam ro quy chuan phan biet xe ban tai/van vs Car
+r3_diag,B3-mid,adasind_230910.jpg,L9,L_only,SPURIOUS,E1_annotator_error,P1,annotator,R03,L9 ve tach rieng nguoi di bo (103-121 x 933-989) tren xe may L10 vi pham R03.,rework,v1.0.0,Xoa box Pedestrian L9 va gop vao Bike
+r3_diag,B3-mid,adasind_230910.jpg,L10,L_only,SPURIOUS,E1_annotator_error,P2,annotator,R03,Box Bike L10 chua bao trum toan bo nguoi lai xe theo R03.,rework,v1.0.0,Ve lai box Bike trum ca nguoi lai
+r3_diag,B3-mid,adasind_230910.jpg,L13,L_only,SPURIOUS,E1_annotator_error,P2,annotator,R08,Box Bike L13 (984-1080 x 938-978) nam lan vao vung vien kinh va la box trung thua.,rework,v1.0.0,Xoa box thua L13
+r3_diag,B3-mid,adasind_230910.jpg,R7,R_only,MISSING,E2_guideline_gap,P1,guideline,R04,Reference gan Car (211-288 x 904-992) trong khi L va M deu gan Truck (L7/M9).,escalate,v1.0.0,Trung ca escalation L7+M9
+r3_diag,B3-mid,adasind_230910.jpg,R8,R_only,MISSING,E1_annotator_error,P2,annotator,R01,Reference co Pedestrian occluded R8 (88-122 x 935-990) bi nguoi gan nhan bo sot.,rework,v1.0.0,Them box Pedestrian bi che khuat mot phan
+r3_diag,B3-mid,adasind_230910.jpg,R10,R_only,MISSING,E1_annotator_error,P1,annotator,R01,Reference co Pedestrian R10 (415-435 x 910-975) bi bo sot giua hai xe.,rework,v1.0.0,Them box Pedestrian R10
+r3_diag,B3-mid,adasind_230910.jpg,M8,M_only,SPURIOUS,E4_model_domain,P3,ai_team,R01,Model phat hien box M8 o mid khong co vat that tuong ung.,keep_with_reason,v1.0.0,Du doan ao cua model

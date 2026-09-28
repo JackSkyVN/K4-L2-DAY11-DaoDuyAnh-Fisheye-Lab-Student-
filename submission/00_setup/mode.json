@@ -1,0 +1,21 @@
+{
+  "members": [
+    "DaoDuyAnh"
+  ],
+  "assignments": {
+    "DaoDuyAnh": "B3-mid"
+  },
+  "self": "DaoDuyAnh",
+  "slice": "B3-mid",
+  "degrade": [],
+  "current_slice": "B3-mid",
+  "support_prefill": true,
+  "support_slice": "B3-mid",
+  "prefill_box_ids": [
+    "adasind_128310.jpg:1",
+    "adasind_128310.jpg:2",
+    "adasind_128310.jpg:3",
+    "adasind_140160.jpg:1",
+    "adasind_140160.jpg:2"
+  ]
+}

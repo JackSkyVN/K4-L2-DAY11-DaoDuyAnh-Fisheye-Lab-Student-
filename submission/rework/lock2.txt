@@ -1,0 +1,9 @@
+round: rework
+slice: B3-mid
+sha256: 4333ce8ef836082ff0b463eaee0ea87a5dbe1a722f40b8ec7328e5521782fd37
+code: 4333-CE8E
+locked_at: 2026-09-28T16:40:08+07:00
+shapes: box=22, polygon=10
+prefill_kept: 22
+prefill_edited: 0
+new: 0

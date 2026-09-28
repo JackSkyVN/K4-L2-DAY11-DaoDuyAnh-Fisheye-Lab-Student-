@@ -1,9 +1,9 @@
 camera_id,slice_type,frames,risk,rationale
-front,normal,,TODO,TODO
-front,hard,,TODO,TODO
-rear,normal,,TODO,TODO
-rear,hard,,TODO,TODO
-left,normal,,TODO,TODO
-left,hard,,TODO,TODO
-right,normal,,TODO,TODO
-right,hard,,TODO,TODO
+front,normal,35,medium,Camera trước nhìn thẳng theo hướng xe. Cảnh thường gặp: đường thẳng, biển báo, người đi bộ ở khoảng cách xa. Rủi ro chính là bỏ sót vật nhỏ ở vùng edge của fisheye và nhầm class ở điều kiện ánh sáng ngược.
+front,hard,15,high,Cảnh khó: giao lộ đông đúc, người đi bộ cắt ngang, điều kiện tối/ngược sáng, vật ở seam góc trước-trái/trước-phải. Cần nhiều ca để học cách xử lý crowd_or_group và rider.
+rear,normal,30,medium,Camera sau nhìn ra phía sau xe khi lùi. Cảnh thường: khu vực bãi đỗ, đường thẳng sau xe. Rủi ro: ego_body chiếm nhiều vùng ảnh hơn camera trước, dễ bỏ sót vật nhỏ sát phía sau.
+rear,hard,20,high,Cảnh khó: lùi trong bãi đỗ hẹp, người đi bộ/xe đạp tiếp cận từ phía sau nhanh, điều kiện đêm, parking_line gây confusion với vạch phân làn. Ca seam góc sau-trái/sau-phải quan trọng.
+left,normal,25,medium,Camera trái nhìn dọc hông trái xe. Cảnh thường: vật di chuyển song song, biển báo bên đường. Rủi ro: méo fisheye ở edge zone cao hơn do xe thường sát lề đường bên trái.
+left,hard,15,high,Cảnh khó: giao cắt hướng ngang bất ngờ (xe máy/xe đạp từ ngõ), điều kiện tắc đường sát vỉa hè, ThreeWheeler (xích lô) thường xuất hiện bên trái tại Việt Nam. Seam trái-trước/trái-sau.
+right,normal,25,medium,Camera phải nhìn dọc hông phải xe. Tương tự camera trái nhưng phía đường xe đi ngược chiều. Rủi ro: occluded do xe khác che, Bike lane thường bên phải tại Việt Nam.
+right,hard,35,high,Cảnh khó: xe máy/xe đạp dày đặc ở làn phải (đặc thù giao thông Việt Nam), điều kiện đông đúc tạo crowd_or_group, vật ở zone edge bị méo mạnh. Hard case nhiều hơn do mật độ phương tiện cao bên phải.
